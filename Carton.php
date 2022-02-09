@@ -56,7 +56,7 @@ class Carton {
     }
 }
 
-$numeros1 = array(1, 10, 39, 86, 90);
+/*$numeros1 = array(1, 10, 39, 86, 90);
 $numeros2 = array(2, 20, 69, 76, 87);
 $numeros3 = array(3, 30, 55, 66, 80);
 
@@ -89,3 +89,4 @@ $carton->marcar(76);
 var_dump($carton->getLineas());
 
 var_dump($carton->bingo());
+*/

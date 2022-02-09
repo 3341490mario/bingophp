@@ -12,7 +12,7 @@
  */
 class Juego {
     //put your code here
-    private $cartones = array(3);
+    private $cartones = array();
     private $bolas = array();
     private $lineaCantada = bool;
     

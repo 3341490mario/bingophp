@@ -35,14 +35,6 @@ class Linea {
         $this->marcados[$posicion] = true;
     }
 
-    public function marcar($number): void {
-        for ($i = 0; $i <= 4; $i++) {
-            if ($this->getNumeros()[$i] == $number && $this->getMarcados()[$i] == false) {
-                $this->setMarcados($i);
-            }
-        }
-    }
-
     public function completo(): bool {
         $contadorCompleto = 0;
 
@@ -53,6 +45,20 @@ class Linea {
         }
 
         if ($contadorCompleto == 5) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function marcar($number): bool {
+        for ($i = 0; $i <= 4; $i++) {
+            if ($this->getNumeros()[$i] == $number && $this->getMarcados()[$i] == false) {
+                $this->setMarcados($i);
+            }
+        }
+        
+        if($this->completo() == true){
             return true;
         } else {
             return false;

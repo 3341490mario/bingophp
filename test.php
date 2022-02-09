@@ -20,6 +20,9 @@ $decenas[8] = range(80, 90);
 
 $decFila = array();
 $numerosFila = array();
+$linea1 = new Linea();
+$linea2 = new Linea();
+$linea3 = new Linea();
 
 while(sizeof($numerosFila)<5) {
 
@@ -40,11 +43,11 @@ while(sizeof($numerosFila)<5) {
     }
 }
 
-$linea = new Linea($numerosFila);
+/*$linea = new Linea($numerosFila);
 
 var_dump($linea);
 
-/*while(sizeof($numerosFila)<5) {
+while(sizeof($numerosFila)<5) {
 
     $randomDecena = random_int(0, 8);
     $randomNumero = 0;

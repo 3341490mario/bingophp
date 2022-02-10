@@ -16,8 +16,8 @@ class Carton {
 
     private $lineas = array();
 
-    public function __construct($lineas) {
-        $this->lineas = $lineas;
+    public function __construct() {
+        
     }
     
     public function getLineas() {

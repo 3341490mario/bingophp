@@ -16,7 +16,7 @@ $decenas[6] = range(60, 69);
 $decenas[7] = range(70, 79);
 $decenas[8] = range(80, 90);
 
-$numDecTotal = array();
+$decenasUsadas = array();
 $decF1 = array();
 $decF2 = array();
 $decF3 = array();
@@ -27,9 +27,9 @@ $numFila3 = array();
 while ((sizeof($numFila1) + sizeof($numFila2) + sizeof($numFila3)) < 15) {
 
     $randomDecena = random_int(0, 8);
-    $aparicionesDecenas = array_count_values($numDecTotal);
+    $aparicionesDecenas = array_count_values($decenasUsadas);
 
-    if (!in_array($randomDecena, $numDecTotal) || (in_array($randomDecena, $numDecTotal) && $aparicionesDecenas[$randomDecena] < 2)) {    // Check decena usada menos de 2 veces
+    if (!in_array($randomDecena, $decenasUsadas) || (in_array($randomDecena, $decenasUsadas) && $aparicionesDecenas[$randomDecena] < 2)) {    // Check decena usada menos de 2 veces
 
         if ($randomDecena == 0) {
             $randomNumero = random_int(0, 8);
@@ -44,7 +44,7 @@ while ((sizeof($numFila1) + sizeof($numFila2) + sizeof($numFila3)) < 15) {
             if (!in_array($randomDecena, $decF1)) {
                 array_push($decF1, $randomDecena);
                 array_push($numFila1, $decenas[$randomDecena][$randomNumero]);
-                array_push($numDecTotal, $randomDecena);        
+                array_push($decenasUsadas, $randomDecena);        
             }
             
         } elseif (sizeof($numFila1) == 5 && sizeof($numFila2) < 5) {                 // Completar fila 2
@@ -54,11 +54,13 @@ while ((sizeof($numFila1) + sizeof($numFila2) + sizeof($numFila3)) < 15) {
                 
                 array_push($decF2, $randomDecena);
                 array_push($numFila2, $decenas[$randomDecena][$randomNumero]);
-                array_push($numDecTotal, $randomDecena);            
+                array_push($decenasUsadas, $randomDecena);            
                 
             }
             
-        } elseif (sizeof($numFila1) == 5 && sizeof($numFila2) == 5 && sizeof($numFila3) < 5) {     // Completar fila 3
+        } elseif (sizeof($numFila1) == 5 
+                && sizeof($numFila2) == 5 
+                && sizeof($numFila3) < 5) {     // Completar fila 3
             
             if (!in_array($randomDecena, $decF3) 
                     && !in_array($decenas[$randomDecena][$randomNumero], $numFila1) 
@@ -66,7 +68,7 @@ while ((sizeof($numFila1) + sizeof($numFila2) + sizeof($numFila3)) < 15) {
                 
                 array_push($decF3, $randomDecena);
                 array_push($numFila3, $decenas[$randomDecena][$randomNumero]);
-                array_push($numDecTotal, $randomDecena);
+                array_push($decenasUsadas, $randomDecena);
             }
         }
     }
@@ -79,10 +81,3 @@ sort($numFila3);
 $linea1 = new Linea($numFila1);
 $linea2 = new Linea($numFila2);
 $linea3 = new Linea($numFila3);
-
-var_dump($linea1);
-echo "LINEA 1";
-var_dump($linea2);
-echo "LINEA 2";
-var_dump($linea3);
-echo "LINEA 3";

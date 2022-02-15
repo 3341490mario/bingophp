@@ -120,32 +120,3 @@ class Carton {
         return $lineasCompletas == 3;
     }
 }
-
-
-/* PRUEBAS
-$cartonPrueba = new Carton();
-echo "CartonPrueba";
-var_dump($cartonPrueba);
-echo "------";
-echo "yesus";
-$lines = $cartonPrueba->getLineas();
-var_dump($lines);
-$cartonPrueba->marcar($lines[0]->getNumeros()[0]);
-$cartonPrueba->marcar($lines[0]->getNumeros()[1]);
-$cartonPrueba->marcar($lines[0]->getNumeros()[2]);
-$cartonPrueba->marcar($lines[0]->getNumeros()[3]);
-$cartonPrueba->marcar($lines[0]->getNumeros()[4]);
-$cartonPrueba->marcar($lines[1]->getNumeros()[0]);
-$cartonPrueba->marcar($lines[1]->getNumeros()[1]);
-$cartonPrueba->marcar($lines[1]->getNumeros()[2]);
-$cartonPrueba->marcar($lines[1]->getNumeros()[3]);
-$cartonPrueba->marcar($lines[1]->getNumeros()[4]);
-$cartonPrueba->marcar($lines[2]->getNumeros()[0]);
-$cartonPrueba->marcar($lines[2]->getNumeros()[1]);
-$cartonPrueba->marcar($lines[2]->getNumeros()[2]);
-$cartonPrueba->marcar($lines[2]->getNumeros()[3]);
-$cartonPrueba->marcar($lines[2]->getNumeros()[4]);
-
-var_dump($lines);
-var_dump($cartonPrueba->bingo());
-*/

@@ -53,7 +53,6 @@ class Juego {
 
         
     public function bola() : int{
-        $this->getCartones();
         $cartonesLinea = array();
         $cartonesBingo = array();
         $nuevaBola = random_int(1, 90);
@@ -80,8 +79,7 @@ class Juego {
         }
     }
 }
-
-
+/*
 $prueba = new Juego();
 var_dump($prueba);
 
@@ -93,3 +91,5 @@ echo "hola";
 $balls = $prueba->getBolas();
 sort($balls);
 var_dump($balls);
+
+var_dump($prueba->getCartones()[0]->getLineas()[0]);

@@ -74,9 +74,9 @@ class Carton {
         $linea1 = new Linea($numFila1);
         $linea2 = new Linea($numFila2);
         $linea3 = new Linea($numFila3);
-        
-        $lineas = array($linea1,$linea2,$linea3);
-        
+
+        $lineas = array($linea1, $linea2, $linea3);
+
         $this->setLineas($lineas);
     }
 
@@ -91,19 +91,19 @@ class Carton {
     public function marcar($numero): int {
         $lineas = $this->getLineas();
         $lineasCompletas = 0;
-        
-        for ($i = 0; $i < 3; $i++) {         
+
+        for ($i = 0; $i < 3; $i++) {
             for ($j = 0; $j < 5; $j++) {
                 if ($lineas[$i]->getNumeros()[$j] == $numero) {
                     $lineas[$i]->marcar($numero);
                 }
             }
-            
-            if($lineas[$i]->marcar($numero)){
+
+            if ($lineas[$i]->marcar($numero)) {
                 $lineasCompletas++;
             }
         }
-        
+
         return $lineasCompletas;
     }
 
@@ -119,4 +119,25 @@ class Carton {
 
         return $lineasCompletas == 3;
     }
+
+    public function imprimir(): void {
+        $lines = $this->getLineas();
+        
+        echo "<table border=1>
+    <tr>
+        <th colspan=10>Cartón</th>
+    </tr>";
+        for ($i = 0; $i < 3; $i++) {
+            echo "<tr>";
+            for ($j = 0; $j < 5; $j++) {
+                echo "<td style='padding: 0.5rem; text-align: center'>" . $lines[$i]->getNumeros()[$j]. "</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
 }
+
+$prueba = new Carton();
+
+$prueba->imprimir();

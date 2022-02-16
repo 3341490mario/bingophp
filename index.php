@@ -37,7 +37,7 @@ echo '<form>'
         .'<input type="text" name="bolaActual" value='.end($game->getBolas()).'>'
         . '</form><br>';
 
-// Tablero de números sacados
+// Tablero de números
 
 echo "<table border=1>
     <tr>
@@ -47,8 +47,11 @@ echo "<table border=1>
         echo "<tr>";
         for($j=0;$j<10;$j++){
             echo "<td style='padding: 0.5rem; text-align: center'>".$numDecenas[$i][$j]."</td>";
-            $n++;
         }
         echo "</tr>";
     }
 echo "</table>";
+
+$carton1->imprimir();
+$carton2->imprimir();
+$carton3->imprimir();

@@ -93,3 +93,4 @@ sort($balls);
 var_dump($balls);
 
 var_dump($prueba->getCartones()[0]->getLineas()[0]);
+*/

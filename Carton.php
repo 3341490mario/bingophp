@@ -17,7 +17,7 @@ class Carton {
     private $lineas = array();
 
     public function __construct() {
-        $decenas[0] = range(1, 9);
+        $decenas[0] = range(1, 9);      // DECENAS POR COLUMNAS
         $decenas[1] = range(10, 19);
         $decenas[2] = range(20, 29);
         $decenas[3] = range(30, 39);
@@ -27,7 +27,7 @@ class Carton {
         $decenas[7] = range(70, 79);
         $decenas[8] = range(80, 90);
 
-        $decenasUsadas = array();
+        $decenasUsadas = array();           // VARIABLES NECESARIAS PARA CREAR EL CARTÓN
         $decF1 = array();
         $decF2 = array();
         $decF3 = array();
@@ -35,7 +35,7 @@ class Carton {
         $numFila2 = array();
         $numFila3 = array();
 
-        while ((sizeof($numFila1) + sizeof($numFila2) + sizeof($numFila3)) < 15) {
+        while ((sizeof($numFila1) + sizeof($numFila2) + sizeof($numFila3)) < 15) {  // Genero cartón mientras no tenga 15 num sumando el tamaño de todas las filas
 
             $randomDecena = random_int(0, 8);
             $aparicionesDecenas = array_count_values($decenasUsadas);
@@ -70,7 +70,7 @@ class Carton {
                 }
             }
         }
-        sort($numFila1) && sort($numFila2) && sort($numFila3);
+        sort($numFila1) && sort($numFila2) && sort($numFila3); // Ordenar números de cada fila
         $linea1 = new Linea($numFila1);
         $linea2 = new Linea($numFila2);
         $linea3 = new Linea($numFila3);
@@ -88,7 +88,7 @@ class Carton {
         $this->lineas = $lineas;
     }
 
-    public function marcar($numero): int {
+    public function marcar($numero): int {      // Bucle para recorrer el cartón numXnum, si el numero está en el cartón lo marca (marcar()) y devuelvo las líneas completas del cartón
         $lineas = $this->getLineas();
         $lineasCompletas = 0;
 
@@ -107,7 +107,7 @@ class Carton {
         return $lineasCompletas;
     }
 
-    public function bingo(): bool {
+    public function bingo(): bool {         // Compruebo linea  alina si está completa y con un contador si llega a 3 devuelve true indicando BINGO
         $lineas = $this->getLineas();
         $lineasCompletas = 0;
 
@@ -119,25 +119,4 @@ class Carton {
 
         return $lineasCompletas == 3;
     }
-
-    public function imprimir(): void {
-        $lines = $this->getLineas();
-        
-        echo "<table border=1>
-    <tr>
-        <th colspan=10>Cartón</th>
-    </tr>";
-        for ($i = 0; $i < 3; $i++) {
-            echo "<tr>";
-            for ($j = 0; $j < 5; $j++) {
-                echo "<td style='padding: 0.5rem; text-align: center'>" . $lines[$i]->getNumeros()[$j]. "</td>";
-            }
-            echo "</tr>";
-        }
-        echo "</table>";
-    }
 }
-
-$prueba = new Carton();
-
-$prueba->imprimir();

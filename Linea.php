@@ -35,26 +35,25 @@ class Linea {
         $this->marcados[$posicion] = true;
     }
 
-    public function completo(): bool {
+    public function completo(): bool {      // Compruebo si toda la linea tiene marcados los números, con un contador. Si llega a 5 deuelve true porque está completa
         $contadorCompleto = 0;
 
         for ($i = 0; $i <= 4; $i++) {
-            if ($this->getMarcados()[$i]) {
+            if ($this->getMarcados()[$i]) { 
                 $contadorCompleto++;
             }
         }
-
+        
         return $contadorCompleto == 5;
     }   
             
-    public function marcar($number): bool {
+    public function marcar($number): bool {     // comprobar si el numero no está marcado, si no lo está lo añadimos con setMarcados
         for ($i = 0; $i <= 4; $i++) {
-            if ($this->getNumeros()[$i] == $number && !$this->getMarcados()[$i]) {
-                $this->setMarcados($i);
+            if ($this->getNumeros()[$i] == $number && !$this->getMarcados()[$i]) {  
+                $this->setMarcados($i); 
             }
         }
         
         return $this->completo();
     }
-
 }
